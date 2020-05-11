@@ -27,7 +27,7 @@ jobs:
       with:
         host: windows
         version: 5.11.3
-        arch: mingw32_53
+        arch: win32_mingw53
 
     - name: Qmake and make
       working-directory: d:/a/qt-github-console/qt-github-console
