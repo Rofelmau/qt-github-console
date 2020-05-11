@@ -31,7 +31,7 @@ jobs:
         #modules: 'qtcore'
 
     - name: Check availability of libraries
-      working-directory: D:/a/qt-github-console/Qt/5.11.3/mingw53_32/lib/
+      working-directory: D:/a/qt-github-console/Qt/5.12.7/mingw73_32/lib/
       run: |
         ls
 
