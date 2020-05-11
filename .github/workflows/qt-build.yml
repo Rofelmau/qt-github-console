@@ -26,9 +26,9 @@ jobs:
       uses: jurplel/install-qt-action@v2.6.2
       with:
         host: windows
-        version: 5.11.3
-        arch: win32_mingw53
-        modules: 'qtcore'
+        #version: 5.11.3
+        #arch: win32_mingw53
+        #modules: 'qtcore'
 
     - name: Qmake and make
       working-directory: d:/a/qt-github-console/qt-github-console
