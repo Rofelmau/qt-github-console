@@ -18,7 +18,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         main.cpp
 
-LIBS += qtcore qtwidget qt5core qt5widget
+LIBS += -lqtcored
 
 # Default rules for deployment.
 #qnx: target.path = /tmp/$${TARGET}/bin
