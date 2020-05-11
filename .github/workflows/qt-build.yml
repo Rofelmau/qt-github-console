@@ -25,13 +25,9 @@ jobs:
     - name: Install Qt
       uses: jurplel/install-qt-action@v2.6.2
       with:
-        # Directory to install Qt
         host: windows
-        # Target platform for build
-        # Architecture for Windows/Android
+        version: 5.11.3
         arch: mingw32_53
-        # Additional Qt modules to install
-        #modules: # optional
 
     - name: Qmake and make
       working-directory: d:/a/qt-github-console/qt-github-console
