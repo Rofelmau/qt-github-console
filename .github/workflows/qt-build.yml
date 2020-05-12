@@ -18,16 +18,25 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Check the mingw version before uninstall
+    - name: Check the mingw-make version before uninstall
       run: |
         Write-Output (Get-Command mingw32-make.exe).Path
         mingw32-make.exe -version
+        
+    - name: Check mingw g++ version
+      run: |
+        Write-Output (Get-Command g++.exe).Path
+        g++.exe --version        
       
     - name: Install correct version of mingw
       run: |
-        choco uninstall mingw
         choco install mingw --version=7.3.0
-        
+
+    - name: Check mingw g++ version
+      run: |
+        Write-Output (Get-Command g++.exe).Path
+        g++.exe --version       
+                
     - name: Check the mingw version after install
       run: |
         Write-Output (Get-Command mingw32-make.exe).Path
