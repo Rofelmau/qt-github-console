@@ -30,7 +30,8 @@ jobs:
       
     - name: Install correct version of mingw
       run: |
-        choco install mingw --version=7.3.0
+        choco install mingw --version=7.3.0 --allow-downgrade
+        choco uninstall strawberryperl --force
 
     - name: Check mingw g++ version
       run: |
