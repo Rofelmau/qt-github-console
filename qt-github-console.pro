@@ -18,7 +18,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         main.cpp
 
-PRE_TARGETDEPS += D:/a/qt-github-console/Qt/5.11.3/mingw53_32/lib/libQt5Cored.a 
+#PRE_TARGETDEPS += D:/a/qt-github-console/Qt/5.11.3/mingw53_32/lib/libQt5Cored.a 
 
 # Default rules for deployment.
 #qnx: target.path = /tmp/$${TARGET}/bin
