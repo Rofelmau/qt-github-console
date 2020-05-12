@@ -71,7 +71,7 @@ jobs:
     - name: Qmake and make
       working-directory: d:/a/qt-github-console/qt-github-console
       run: | 
-        qmake.exe qt-github-console.pro -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug" "LIBS += D:\a\qt-github-console\Qt\5.12.7\mingw73_32\lib"
+        qmake.exe qt-github-console.pro -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug" "LIBS += D:\a\qt-github-console\Qt\5.12.7\mingw73_32\lib\libQt5Cored.a"
         mingw32-make.exe qmake_all
         
     - name: Make mingw32
