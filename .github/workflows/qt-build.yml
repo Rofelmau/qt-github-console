@@ -49,13 +49,14 @@ jobs:
       working-directory: D:/a/qt-github-console/Qt/${{ env.QT_VERSION }}/${{ env.MINGW_PATH }}/lib/
       run: |
         ls
+        ls D:/a/qt-github-console/Qt/${{ env.QT_VERSION }}/${{ env.MINGW_PATH }}/bin/
 
     - name: Check QMake and make
       run: |
         Write-Output (Get-Command qmake.exe).Path
         qmake.exe -version
-        Write-Output (Get-Command mingw32-make.exe).Path
-        mingw32-make.exe -version
+        #Write-Output (Get-Command mingw32-make.exe).Path
+        #mingw32-make.exe -version
     
     - name: Prepend path
       run: echo "::add-path::d:/a/qt-github-console/Qt/5.12.7/mingw73_32/bin"
