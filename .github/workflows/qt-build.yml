@@ -29,11 +29,6 @@ jobs:
         choco uninstall strawberryperl --force
         #choco install mingw --version=7.3.0 --allow-downgrade
 
-    - name: Check the mingw version after install
-      run: |
-        Write-Output (Get-Command mingw32-make.exe).Path
-        mingw32-make.exe -version
-        
     - name: Install Qt
       uses: jurplel/install-qt-action@v2.6.2
       with:
