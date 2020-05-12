@@ -3,6 +3,7 @@ name: CI
 env:
   QT_VERSION:     "5.12.7"
   MINGW_VERSION:  "win32_mingw73"
+  MINGW_PATH:     "mingw73_32"
   
 on:
   push:
@@ -27,7 +28,7 @@ jobs:
         extra: --external 7z
 
     - name: Check availability of libraries
-      working-directory: D:/a/qt-github-console/Qt/${{ env.QT_VERSION }}/${{ env.MINGW_VERSION }}/lib/
+      working-directory: D:/a/qt-github-console/Qt/${{ env.QT_VERSION }}/${{ env.MINGW_PATH }}/lib/
       run: |
         ls
 
