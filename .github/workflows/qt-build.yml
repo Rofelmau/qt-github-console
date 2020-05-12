@@ -26,8 +26,8 @@ jobs:
       uses: jurplel/install-qt-action@v2.6.2
       with:
         host: windows
-        version: 5.11.3
-        arch: win32_mingw53
+        version: 5.12.7
+        arch: win32_mingw73
         #modules: 'qtcore'
         extra: --external 7z
 
