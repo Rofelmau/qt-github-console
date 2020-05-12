@@ -38,12 +38,12 @@ jobs:
         #modules: 'qtcore'
         extra: --external 7z
 
-    - name: Set path and check mingw g++ version
+    - name: Set path and refresh
       run: |
         echo "::add-path::d:/a/qt-github-console/Qt/${{ env.QT_VERSION }}/${{ env.MINGW_PATH }}/bin"
         refreshenv
-        Write-Output (Get-Command g++.exe).Path
-        g++.exe --version
+        #Write-Output (Get-Command g++.exe).Path
+        #g++.exe --version
         
     - name: Check availability of libraries
       working-directory: D:/a/qt-github-console/Qt/${{ env.QT_VERSION }}/${{ env.MINGW_PATH }}/lib/
