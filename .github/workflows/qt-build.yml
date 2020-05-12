@@ -2,8 +2,8 @@ name: CI
 
 env:
   QT_VERSION:     "5.12.7"
-  MINGW_VERSION:  "win32_mingw73"
-  MINGW_PATH:     "mingw73_32"
+  MINGW_VERSION:  "win32_mingw53"
+  MINGW_PATH:     "mingw53_32"
   
 on:
   push:
