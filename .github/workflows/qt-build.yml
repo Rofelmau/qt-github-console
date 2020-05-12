@@ -1,5 +1,9 @@
 name: CI
 
+env:
+  QT_VERSION:     5.12.7
+  MINGW_VERSION:  win32_mingw73
+  
 on:
   push:
     branches: [ master ]
@@ -11,11 +15,6 @@ jobs:
     runs-on: windows-latest
 
     steps:
-    - name: Set variables for run
-      run: |
-        echo '::set-env name=QT_VERSION::5.12.7'
-        echo '::set-env name=MINGW_VERSION::win32_mingw73'
-        
     - uses: actions/checkout@v2
 
     - name: Install Qt
