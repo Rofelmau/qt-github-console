@@ -25,11 +25,17 @@ jobs:
         arch: $MINGW_VERSION
         #modules: 'qtcore'
         extra: --external 7z
+      env:
+        QT_VERSION:     5.12.7
+        MINGW_VERSION:  win32_mingw73
 
     - name: Check availability of libraries
       working-directory: D:/a/qt-github-console/Qt/$QT_VERSION/$MINGW_VERSION/lib/
       run: |
         ls
+      env:
+        QT_VERSION:     5.12.7
+        MINGW_VERSION:  win32_mingw73
 
     - name: Qmake and make
       working-directory: d:/a/qt-github-console/qt-github-console
