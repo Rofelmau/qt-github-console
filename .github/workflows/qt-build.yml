@@ -18,11 +18,19 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
+    - name: Check the mingw version before uninstall
+      run: |
+        Write-Output (Get-Command mingw32-make.exe).Path
+      
     - name: Install correct version of mingw
       run: |
         choco uninstall mingw
         choco install mingw --version=7.3.0
-  
+        
+    - name: Check the mingw version after install
+      run: |
+        Write-Output (Get-Command mingw32-make.exe).Path
+        
     - name: Install Qt
       uses: jurplel/install-qt-action@v2.6.2
       with:
