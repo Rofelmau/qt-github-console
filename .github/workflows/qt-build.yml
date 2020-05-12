@@ -21,9 +21,7 @@ jobs:
     - name: Check the mingw version before uninstall
       run: |
         Write-Output (Get-Command mingw32-make.exe).Path
-        Write-Output (Get-Command qmake.exe).Path
         mingw32-make.exe -version
-        qmake.exe -version
       
     - name: Install correct version of mingw
       run: |
@@ -33,9 +31,7 @@ jobs:
     - name: Check the mingw version after install
       run: |
         Write-Output (Get-Command mingw32-make.exe).Path
-        Write-Output (Get-Command qmake.exe).Path
         mingw32-make.exe -version
-        qmake.exe -version
         
     - name: Install Qt
       uses: jurplel/install-qt-action@v2.6.2
@@ -51,6 +47,13 @@ jobs:
       run: |
         ls
 
+    - name: Check QMake and make
+      run: |
+        Write-Output (Get-Command qmake.exe).Path
+        qmake.exe -version
+        Write-Output (Get-Command mingw32-make.exe).Path
+        mingw32-make.exe -version
+        
     - name: Qmake and make
       working-directory: d:/a/qt-github-console/qt-github-console
       run: | 
