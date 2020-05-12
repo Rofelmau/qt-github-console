@@ -27,7 +27,7 @@ jobs:
       run: |
         choco uninstall mingw --force
         choco uninstall strawberryperl --force
-        #choco install mingw --version=7.3.0 --allow-downgrade
+        choco install mingw --version=7.3.0
 
     - name: Install Qt
       uses: jurplel/install-qt-action@v2.6.2
@@ -65,8 +65,8 @@ jobs:
       run: |
         Write-Output (Get-Command qmake.exe).Path
         qmake.exe -version
-        Write-Output (Get-Command mingw32-make.exe).Path
-        mingw32-make.exe -version
+        #Write-Output (Get-Command mingw32-make.exe).Path
+        #mingw32-make.exe -version
         
     - name: Qmake and make
       working-directory: d:/a/qt-github-console/qt-github-console
