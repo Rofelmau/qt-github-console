@@ -53,6 +53,16 @@ jobs:
         qmake.exe -version
         Write-Output (Get-Command mingw32-make.exe).Path
         mingw32-make.exe -version
+    
+    - name: Prepend path
+      run: echo "::add-path::d:/a/qt-github-console/Qt/5.12.7/mingw73_32/bin"
+
+    - name: Check QMake and make after prepend path
+      run: |
+        Write-Output (Get-Command qmake.exe).Path
+        qmake.exe -version
+        Write-Output (Get-Command mingw32-make.exe).Path
+        mingw32-make.exe -version
         
     - name: Qmake and make
       working-directory: d:/a/qt-github-console/qt-github-console
