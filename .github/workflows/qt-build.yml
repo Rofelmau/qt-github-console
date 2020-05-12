@@ -18,11 +18,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Check the mingw-make version before uninstall
-      run: |
-        Write-Output (Get-Command mingw32-make.exe).Path
-        mingw32-make.exe -version
-        
     - name: Check mingw g++ version
       run: |
         Write-Output (Get-Command g++.exe).Path
@@ -30,14 +25,10 @@ jobs:
       
     - name: Install correct version of mingw
       run: |
-        choco install mingw --version=7.3.0 --allow-downgrade
+        choco uninstall mingw --force
         choco uninstall strawberryperl --force
+        #choco install mingw --version=7.3.0 --allow-downgrade
 
-    - name: Check mingw g++ version
-      run: |
-        Write-Output (Get-Command g++.exe).Path
-        g++.exe --version       
-                
     - name: Check the mingw version after install
       run: |
         Write-Output (Get-Command mingw32-make.exe).Path
@@ -52,6 +43,13 @@ jobs:
         #modules: 'qtcore'
         extra: --external 7z
 
+    - name: Set path and check mingw g++ version
+      run: |
+        echo "::add-path::d:/a/qt-github-console/Qt/${{ env.QT_VERSION }}/${{ env.MINGW_PATH }}/bin"
+        refreshenv
+        Write-Output (Get-Command g++.exe).Path
+        g++.exe --version
+        
     - name: Check availability of libraries
       working-directory: D:/a/qt-github-console/Qt/${{ env.QT_VERSION }}/${{ env.MINGW_PATH }}/lib/
       run: |
