@@ -1,8 +1,8 @@
 name: CI
 
 env:
-  QT_VERSION:     5.12.7
-  MINGW_VERSION:  win32_mingw73
+  QT_VERSION:     "5.12.7"
+  MINGW_VERSION:  "win32_mingw73"
   
 on:
   push:
@@ -21,21 +21,15 @@ jobs:
       uses: jurplel/install-qt-action@v2.6.2
       with:
         host: windows
-        version: $QT_VERSION
-        arch: $MINGW_VERSION
+        version: ${{ env.QT_VERSION }}
+        arch: ${{ env.MINGW_VERSION }}
         #modules: 'qtcore'
         extra: --external 7z
-      env:
-        QT_VERSION:     5.12.7
-        MINGW_VERSION:  win32_mingw73
 
     - name: Check availability of libraries
-      working-directory: D:/a/qt-github-console/Qt/$QT_VERSION/$MINGW_VERSION/lib/
+      working-directory: D:/a/qt-github-console/Qt/${{ env.QT_VERSION }}/${{ env.MINGW_VERSION }}/lib/
       run: |
         ls
-      env:
-        QT_VERSION:     5.12.7
-        MINGW_VERSION:  win32_mingw73
 
     - name: Qmake and make
       working-directory: d:/a/qt-github-console/qt-github-console
