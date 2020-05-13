@@ -84,9 +84,7 @@ jobs:
         qmake.exe -version
         Write-Output (Get-Command mingw32-make.exe).Path
         mingw32-make.exe -version
-        Write-Output (Get-Command mingw32-g++.exe).Path
-        Write-Output (Get-Command g++.exe).Path
-        ls (Get-Command mingw32-g++.exe).Path
+        Write-Output (Get-Command g++).Path
         ls (Get-Command g++.exe).Path
         
     - name: Make mingw32
