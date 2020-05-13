@@ -86,6 +86,7 @@ jobs:
         mingw32-make.exe -version
         Write-Output (Get-Command g++).Path
         ls (Get-Command g++.exe).Path
+        g++.exe --version 
         
     - name: Make mingw32
       working-directory: d:/a/qt-github-console/qt-github-console
