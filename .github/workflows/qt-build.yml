@@ -1,9 +1,9 @@
 name: CI
 
 env:
-  QT_VERSION:     "5.12.7"
-  MINGW_VERSION:  "win32_mingw73"
-  MINGW_PATH:     "mingw73_32"
+  QT_VERSION:     "5.11.3"
+  MINGW_VERSION:  "win32_mingw53"
+  MINGW_PATH:     "mingw53_32"
   
 on:
   push:
@@ -27,7 +27,8 @@ jobs:
       run: |
         choco uninstall mingw --force
         choco uninstall strawberryperl --force
-        choco install mingw --version=7.3.0
+        #choco install mingw --version=7.3.0 
+        choco install qt-sdk-windows-x86-mingw_opengl
         
     - name: Check mingw directory
       run: |
@@ -63,7 +64,7 @@ jobs:
         #mingw32-make.exe -version
     
     - name: Prepend path
-      run: echo "::add-path::d:/a/qt-github-console/Qt/5.12.7/mingw73_32/bin"
+      run: echo "::add-path::d:/a/qt-github-console/Qt/${{ env.QT_VERSION }}/mingw73_32/bin"
 
     - name: Check QMake and make after prepend path
       run: |
@@ -75,7 +76,7 @@ jobs:
     - name: Qmake and make
       working-directory: d:/a/qt-github-console/qt-github-console
       run: | 
-        qmake.exe qt-github-console.pro -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug" "LIBS += D:\a\qt-github-console\Qt\5.12.7\mingw73_32\lib\libQt5Cored.a"
+        qmake.exe qt-github-console.pro -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug" #"LIBS += D:\a\qt-github-console\Qt\5.12.7\mingw73_32\lib\libQt5Cored.a"
         mingw32-make.exe qmake_all
         
     - name: Check QMake and make, g++
