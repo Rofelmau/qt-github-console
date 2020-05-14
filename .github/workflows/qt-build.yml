@@ -93,3 +93,5 @@ jobs:
       working-directory: d:/a/qt-github-console/qt-github-console
       run: |
         mingw32-make.exe -j8
+        Get-Location
+        ls
