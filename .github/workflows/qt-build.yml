@@ -16,6 +16,9 @@ jobs:
     runs-on: windows-latest
 
     steps:
+    - name: Print working directory on runner
+      run: Get-Location
+
     - uses: actions/checkout@v2
 
     - name: Check mingw g++ version
